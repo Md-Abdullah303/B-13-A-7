@@ -93,7 +93,15 @@ const FriendDetails = () => {
           </div>
         </div>
         {/* right side  */}
-        <div className="flex-1"></div>
+        <div className="flex-1">
+            {/* grid */}
+            <div className="grid grid-cols-3 gap-5">
+                <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
+                    <h1 className="text-3xl text-[#] font-semibold">{days_since_contact}</h1>
+                    <p className="text-gray-500">Days Since Contact</p>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
   );
