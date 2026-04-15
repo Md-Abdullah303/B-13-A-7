@@ -1,9 +1,13 @@
-import React from "react";
+import React, { use } from "react";
 import MyFriends from "../../../Hooks/MyFriends";
 import { useLoaderData, useParams } from "react-router";
 import { LuBellRing } from "react-icons/lu";
 import { MdDeleteForever } from "react-icons/md";
+import callImg from "../../img/call.png";
+import taxtImg from "../../img/text.png";
+import videoCallPng from "../../img/video.png";
 import { FaArchive } from "react-icons/fa";
+import { TimelineDataContext } from "../../../context/TimelineContextProvider/TimelineDataContext";
 
 /***
  * 
@@ -20,14 +24,14 @@ tags:(2) ['business', 'network']
  */
 
 const FriendDetails = () => {
-  //   const { friendsData } = MyFriends();
+  const { timeline, setTimeline } = use(TimelineDataContext);
   const friendsData = useLoaderData();
   const { id } = useParams();
 
   const expectedFriendData = friendsData.find(
     (friend) => friend.id === Number(id),
   );
-
+  
   const {
     name,
     bio,
@@ -38,9 +42,47 @@ const FriendDetails = () => {
     picture,
     status,
     tags,
-  } = expectedFriendData;
+  } = expectedFriendData || {};
 
-  console.log(expectedFriendData);
+  //  handler
+  const handleTimeline = (type, id) => {
+    console.log(type);
+
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const date = new Date();
+    const year = date.getFullYear();
+    const day = date.getDay();
+    const monthInd = date.getMonth();
+    const month = months[monthInd];
+
+
+    const timeLineData = {
+      id,
+      name,
+      day,
+      month,
+      year,
+      type,
+    };
+
+    setTimeline([...timeline, timeLineData]);
+    console.log(timeline);
+  };
+
+  // console.log(timeline);
   return (
     <div className=" bg-[#F8FAFC]  py-10">
       <div className="w-[90%] sm:container flex  gap-5 items-start mx-auto">
@@ -78,29 +120,79 @@ const FriendDetails = () => {
           </div>
           {/* snooze, archive, deleted btns */}
           <div className="mt-2 w-full space-y-2.5">
-                <div className="bg-white flex items-center justify-center text-gray-500 font-semibold gap-2 py-3 px-4 rounded-lg border-gray-300 shadow-sm w-full  border cursor-pointer">
-                    <LuBellRing />
-                    <p>Snooze 2 Weeks</p>
-                </div>
-                <div className="bg-white flex items-center justify-center text-gray-500 font-semibold gap-2 py-3 px-4 rounded-lg border-gray-300 shadow-sm w-full  border cursor-pointer">
-                    <FaArchive />
-                    <p>Archive</p>
-                </div>
-                <div className="bg-white flex items-center justify-center text-red-500 font-semibold gap-2 py-3 px-4 rounded-lg border-gray-300 shadow-sm w-full  border cursor-pointer">
-                    <MdDeleteForever />
-                    <p>Delete</p>
-                </div>
+            <div className="bg-white flex items-center justify-center text-gray-500 font-semibold gap-2 py-3 px-4 rounded-lg border-gray-300 shadow-sm w-full  border cursor-pointer">
+              <LuBellRing />
+              <p>Snooze 2 Weeks</p>
+            </div>
+            <div className="bg-white flex items-center justify-center text-gray-500 font-semibold gap-2 py-3 px-4 rounded-lg border-gray-300 shadow-sm w-full  border cursor-pointer">
+              <FaArchive />
+              <p>Archive</p>
+            </div>
+            <div className="bg-white flex items-center justify-center text-red-500 font-semibold gap-2 py-3 px-4 rounded-lg border-gray-300 shadow-sm w-full  border cursor-pointer">
+              <MdDeleteForever />
+              <p>Delete</p>
+            </div>
           </div>
         </div>
         {/* right side  */}
-        <div className="flex-1">
-            {/* grid */}
-            <div className="grid grid-cols-3 gap-5">
-                <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
-                    <h1 className="text-3xl text-[#] font-semibold">{days_since_contact}</h1>
-                    <p className="text-gray-500">Days Since Contact</p>
-                </div>
+        <div className="flex-1 space-y-2">
+          {/* grid */}
+          <div className="grid grid-cols-3 gap-5">
+            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
+              <h1 className="text-3xl text-[#244D3F] font-semibold">
+                {days_since_contact}
+              </h1>
+              <p className="text-gray-500">Days Since Contact</p>
             </div>
+            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
+              <h1 className="text-3xl text-[#244D3F] font-semibold">{goal}</h1>
+              <p className="text-gray-500">Goal(Days)</p>
+            </div>
+            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
+              <h1 className="text-3xl text-[#244D3F] font-semibold">
+                {next_due_date}
+              </h1>
+              <p className="text-gray-500">Next Due</p>
+            </div>
+          </div>
+          <div className="bg-white py-5 px-6 rounded-lg border-gray-300 border ">
+            <div className=" flex items-center gap-5 justify-between">
+              <p className="text-xl font-semibold text-[#244D3F]">
+                Relationship Goal
+              </p>
+              <button className="btn">Edit</button>
+            </div>
+            <p className="text-gray-400">
+              Connect every{" "}
+              <span className="text-black font-bold">30 days</span>
+            </p>
+          </div>
+          <div className="bg-white py-5 px-6 rounded-lg border-gray-300 border  ">
+            <h1 className="text-lg font-semibold">Quick Check-In</h1>
+            <div className="grid mt-3 grid-cols-3 gap-3">
+              <div
+                onClick={() => handleTimeline("call", expectedFriendData.id)}
+                className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC] flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
+              >
+                <img src={callImg} alt="call img" />
+                <h3 className="text-xl text-gray-500 font-semibold">Call</h3>
+              </div>
+              <div
+                onClick={() => handleTimeline("text", expectedFriendData.id)}
+                className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC] flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
+              >
+                <img src={taxtImg} alt="call img" />
+                <h3 className="text-xl text-gray-500 font-semibold">Text</h3>
+              </div>
+              <div
+                onClick={() => handleTimeline("video", expectedFriendData.id)}
+                className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC]  flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
+              >
+                <img src={videoCallPng} alt="call img" />
+                <h3 className="text-xl text-gray-500 font-semibold">Video</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
