@@ -1,23 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router";
 
-/***
- * 
- * bio:"Met at a startup event. We often discuss business ideas and collaborations."
-days_since_contact:16
-email:"rashidul.islam@yahoo.com"
-goal:14
-id:7
-name:"Rashidul Islam"
-next_due_date:"2026-03-30"
-picture:"https://randomuser.me/api/portraits/men/67.jpg"
-status:"overdue"
-tags:(2) ['business', 'network']
- */
 
 const FriendCard = ({ friend }) => {
   // console.log(friend);
   return (
-    <div className="bg-white shadow-sm rounded-xl flex flex-col gap-3 items-center py-5">
+    <NavLink to={`/profile/${friend.id}`} className="bg-white shadow-sm rounded-xl flex flex-col gap-3 items-center py-5">
       <div className="w-30 overflow-hidden rounded-full border border-gray-300">
         <img src={friend.picture} alt={friend.name} />
       </div>
@@ -37,7 +25,7 @@ const FriendCard = ({ friend }) => {
                 `}
         >{friend.status}</h3>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

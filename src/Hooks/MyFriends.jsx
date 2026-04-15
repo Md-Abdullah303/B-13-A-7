@@ -12,7 +12,7 @@ const MyFriends = () => {
       setSpiner(false);
     };
     fetchData();
-  });
+  },[]);
   return {friendsData, spiner};
 };
 
