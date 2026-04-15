@@ -10,15 +10,21 @@ const HomePage = () => {
 
   return (
     <div className="bg-[#F8FAFC]">
-      <div className="container mx-auto py-10">
+      <div className="w-[90%] sm:container mx-auto py-10">
         <HeroBanner></HeroBanner>
         <HeroBoxes></HeroBoxes>
         <hr className="text-gray-300 my-8" />
-        <h1 className="text-2xl font-bold mb-5">Your Friends</h1>
+        <h1 className="sm:text-2xl text-lg font-bold mb-5">Your Friends</h1>
 
-        <>{spiner ? <div className="flex justify-center py-30"><GridLoader color="#9C27B0"/></div> : <FriendsCards></FriendsCards>}</>
-
-        
+        <>
+          {spiner ? (
+            <div className="flex justify-center py-10 sm:py-30">
+              <GridLoader color="#9C27B0" />
+            </div>
+          ) : (
+            <FriendsCards></FriendsCards>
+          )}
+        </>
       </div>
     </div>
   );
