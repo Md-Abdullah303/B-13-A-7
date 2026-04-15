@@ -5,7 +5,7 @@
         "picture": "https://randomuser.me/api/portraits/men/32.jpg",
         "email": "amit.rahman@gmail.com",
         "days_since_contact": 18,
-        "status": "overdue",
+        "status": "Overdue",
         "tags": [
             "college",
             "close friend"
@@ -20,7 +20,7 @@
         "picture": "https://randomuser.me/api/portraits/women/45.jpg",
         "email": "sarah.ahmed@yahoo.com",
         "days_since_contact": 10,
-        "status": "almost due",
+        "status": "Almost due",
         "tags": [
             "work",
             "mentor"
@@ -35,7 +35,7 @@
         "picture": "https://randomuser.me/api/portraits/women/12.jpg",
         "email": "nusrat.jahan@gmail.com",
         "days_since_contact": 5,
-        "status": "on-track",
+        "status": "On-track",
         "tags": [
             "school",
             "best friend"
@@ -50,7 +50,7 @@
         "picture": "https://randomuser.me/api/portraits/men/51.jpg",
         "email": "tanvir.hasan@outlook.com",
         "days_since_contact": 22,
-        "status": "overdue",
+        "status": "Overdue",
         "tags": [
             "gym",
             "fitness"
@@ -65,7 +65,7 @@
         "picture": "https://randomuser.me/api/portraits/women/30.jpg",
         "email": "farhana.karim@gmail.com",
         "days_since_contact": 11,
-        "status": "almost due",
+        "status": "Almost due",
         "tags": [
             "university",
             "study group"
@@ -80,7 +80,7 @@
         "picture": "https://randomuser.me/api/portraits/men/18.jpg",
         "email": "imran.chy@gmail.com",
         "days_since_contact": 3,
-        "status": "on-track",
+        "status": "On-track",
         "tags": [
             "travel",
             "adventure"
@@ -95,7 +95,7 @@
         "picture": "https://randomuser.me/api/portraits/men/67.jpg",
         "email": "rashidul.islam@yahoo.com",
         "days_since_contact": 16,
-        "status": "overdue",
+        "status": "Overdue",
         "tags": [
             "business",
             "network"
@@ -110,7 +110,7 @@
         "picture": "https://randomuser.me/api/portraits/women/22.jpg",
         "email": "maliha.sultana@gmail.com",
         "days_since_contact": 9,
-        "status": "almost due",
+        "status": "Almost due",
         "tags": [
             "family friend"
         ],
@@ -124,7 +124,7 @@
         "picture": "https://randomuser.me/api/portraits/men/40.jpg",
         "email": "arif.hossain@protonmail.com",
         "days_since_contact": 6,
-        "status": "on-track",
+        "status": "On-track",
         "tags": [
             "coding",
             "tech"
@@ -139,7 +139,7 @@
         "picture": "https://randomuser.me/api/portraits/women/55.jpg",
         "email": "sharmeen.akter@gmail.com",
         "days_since_contact": 20,
-        "status": "overdue",
+        "status": "Overdue",
         "tags": [
             "neighbor",
             "childhood"

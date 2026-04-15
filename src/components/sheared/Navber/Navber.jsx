@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import MyNavLink from "../MyNavLink/MyNavLink";
+import { IoHomeOutline, IoTimeOutline } from "react-icons/io5";
+import { TfiStatsUp } from "react-icons/tfi";
 
 const Navber = () => {
   return (
@@ -13,9 +15,9 @@ const Navber = () => {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal space-x-2.5 px-1">
-            <MyNavLink to={'/'} className="" >Home</MyNavLink>
-            <MyNavLink to={'/timeline'} className="" >TimeLine</MyNavLink>
-            <MyNavLink to={'/stats'} className="" >Stats</MyNavLink>
+            <MyNavLink to={'/'} className="" ><IoHomeOutline /> Home</MyNavLink>
+            <MyNavLink to={'/timeline'} className="" ><IoTimeOutline /> TimeLine</MyNavLink>
+            <MyNavLink to={'/stats'} className="" ><TfiStatsUp /> Stats</MyNavLink>
             
           </ul>
         </div>
