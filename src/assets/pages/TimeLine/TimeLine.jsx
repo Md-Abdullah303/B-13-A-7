@@ -67,7 +67,7 @@ const TimeLine = () => {
           </div>
         </div>
 
-        {timeline.length > 0 ? (
+        {filterTimeline.length > 0 ? (
           <div
             className={` space-y-3 ${filterTimeline.length === 1 && "mb-[30vh]"} ${filterTimeline.length < 5 && "mb-[20vh]"}`}
           >

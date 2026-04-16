@@ -4,11 +4,11 @@ const HeroBoxes = () => {
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-7'>
             <div className=" flex items-center flex-col bg-white   py-5 sm:py-10 rounded-xl border border-gray-300">
-                <h1 className='text-3xl font-semibold text-[#244D3F]'>10</h1>
+                <h1 className='text-3xl font-semibold text-[#244D3F]'>12</h1>
                 <p className='text-gray-600 text-[14px] mt-2'>Total Friends</p>
             </div>
             <div className=" flex items-center flex-col bg-white py-5 sm:py-10 rounded-xl border border-gray-300">
-                <h1 className='text-3xl font-semibold text-[#244D3F]'>3</h1>
+                <h1 className='text-3xl font-semibold text-[#244D3F]'>4</h1>
                 <p className='text-gray-600 text-[14px] mt-2'>On Track</p>
             </div>
             <div className=" flex items-center flex-col bg-white   py-5 sm:py-10 rounded-xl border border-gray-300">
