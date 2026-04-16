@@ -1,13 +1,36 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { TimelineDataContext } from "../../../context/TimelineContextProvider/TimelineDataContext";
-import callImg from "../../img/call.png";
-import taxtImg from "../../img/text.png";
-import videoCallPng from "../../img/video.png";
 import TimelineNotfoundPage from "../../../components/TimelineNotfoundPage/TimelineNotfoundPage";
+import TimelineShowCard from "../../../components/TimelineShowCard/TimelineShowCard";
 
 const TimeLine = () => {
-  const { timeline } = use(TimelineDataContext);
+  const [timelineStats, setTimelineStats] = useState("show all");
+  const { timeline, setTimeline } = use(TimelineDataContext);
+  const [filterTimeline, setFilterTimeline] = useState(timeline);
   console.log(timeline);
+
+  const handleTimelineStats = (currentStat) => {
+    setTimelineStats(currentStat);
+
+    if (currentStat == "text") {
+      const filterTimelineText = timeline.filter(
+        (timeL) => timeL.type == "text",
+      );
+      setFilterTimeline(filterTimelineText);
+    } else if (currentStat == "show all") {
+      setFilterTimeline(timeline);
+    } else if (currentStat == "call") {
+      const filterTimelineCall = timeline.filter(
+        (timeL) => timeL.type == "call",
+      );
+      setFilterTimeline(filterTimelineCall);
+    } else if (currentStat == "video") {
+      const filterTimelineVideo = timeline.filter(
+        (timeL) => timeL.type == "video",
+      );
+      setFilterTimeline(filterTimelineVideo);
+    }
+  };
 
   return (
     <div className="py-10 bg-[#F8FAFC]">
@@ -18,50 +41,41 @@ const TimeLine = () => {
         <div className=" py-7">
           <div className="dropdown dropdown-right">
             <div tabIndex={0} role="button" className="btn m-1">
-              Filter timeline ➡️
+              {`${timelineStats == "show all" ? "Filter timeline" : ""}`}
+              {`${timelineStats == "text" ? "Filter Text" : ""}`}
+              {`${timelineStats == "call" ? "Filter Call" : ""}`}
+              {`${timelineStats == "video" ? "Filter Video Call" : ""}`}
+              ➡️
             </div>
             <ul
               tabIndex="-1"
               className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
             >
-              <li>
+              <li onClick={() => handleTimelineStats("show all")}>
+                <a>Show all</a>
+              </li>
+              <li onClick={() => handleTimelineStats("text")}>
                 <a>Text</a>
               </li>
-              <li>
+              <li onClick={() => handleTimelineStats("call")}>
                 <a>Call</a>
               </li>
-              <li>
+              <li onClick={() => handleTimelineStats("video")}>
                 <a>Video</a>
               </li>
             </ul>
           </div>
         </div>
 
-        {
-            timeline.length > 0 ? <div className=" space-y-3">
-          {timeline.map((time, ind) => (
-            <div
-              className="bg-white border border-gray-300 rounded-lg py-4 px-6 flex items-center gap-3.5"
-              key={ind}
-            >
-              <div className="">
-                {time.type === "call" && <img src={callImg} alt="call img" />}
-                {time.type === "video" && <img src={videoCallPng} alt="call img" />}
-                {time.type === "text" && <img src={taxtImg} alt="call img" />}
-              </div>
-              <div className="">
-                <h1 className="text-xl font-bold text-[#244D3F]">
-                  {time.type}{" "}
-                  <span className="text-sm font-normal text-[#64748B]">
-                    with {time.name}
-                  </span>
-                </h1>
-                <p className="text-sm font-normal text-[#64748B]">{`${time.month} ${time.day} ${time.year}`}</p>
-              </div>
-            </div>
-          ))}
-        </div> : <TimelineNotfoundPage></TimelineNotfoundPage> 
-        }
+        {timeline.length > 0 ? (
+          <div className=" space-y-3">
+            {filterTimeline.map((time, ind) => (
+              <TimelineShowCard key={ind} time={time}></TimelineShowCard>
+            ))}
+          </div>
+        ) : (
+          <TimelineNotfoundPage></TimelineNotfoundPage>
+        )}
       </div>
     </div>
   );

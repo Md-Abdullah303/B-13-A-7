@@ -7,6 +7,7 @@ import { FaArchive } from "react-icons/fa";
 import { TimelineDataContext } from "../../../context/TimelineContextProvider/TimelineDataContext";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoMdVideocam } from "react-icons/io";
+import { Bounce, toast } from "react-toastify";
 
 /***
  * 
@@ -67,7 +68,6 @@ const FriendDetails = () => {
     const monthInd = date.getMonth();
     const month = months[monthInd];
 
-
     const timeLineData = {
       id,
       name,
@@ -78,13 +78,26 @@ const FriendDetails = () => {
     };
 
     setTimeline([...timeline, timeLineData]);
-    // console.log(timeline);
+    toast.success(
+      `🚀 ${type === "video" ? `${type} calling` : `${type}ing`} with ${name}`,
+      {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      },
+    );
   };
 
   // console.log(timeline);
   return (
     <div className=" bg-[#F8FAFC]  py-10">
-      <div className="w-[90%] sm:container flex  gap-5 items-start mx-auto">
+      <div className="w-[90%] sm:container flex flex-col sm:flex-row  gap-5 md:items-start mx-auto">
         {/* left side */}
         <div className="flex flex-col items-start gap-5">
           {/* profile card */}
@@ -136,27 +149,27 @@ const FriendDetails = () => {
         {/* right side  */}
         <div className="flex-1 space-y-2">
           {/* grid */}
-          <div className="grid grid-cols-3 gap-5">
-            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
-              <h1 className="text-3xl text-[#244D3F] font-semibold">
+          <div className="grid grid-cols-3 gap-2 sm:gap-5">
+            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border text-center ">
+              <h1 className="text-2xl lg:text-3xl text-[#244D3F] font-semibold">
                 {days_since_contact}
               </h1>
-              <p className="text-gray-500">Days Since Contact</p>
+              <p className="text-gray-500 text-[12px] lg:text-sm">Days Since Contact</p>
             </div>
-            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
-              <h1 className="text-3xl text-[#244D3F] font-semibold">{goal}</h1>
-              <p className="text-gray-500">Goal(Days)</p>
+            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border text-center ">
+              <h1 className="text-2xl lg:text-3xl text-[#244D3F] font-semibold">{goal}</h1>
+              <p className="text-gray-500 text-[12px] lg:text-sm">Goal(Days)</p>
             </div>
-            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border ">
-              <h1 className="text-3xl text-[#244D3F] font-semibold">
+            <div className="bg-white flex flex-col items-center gap-2 py-3 rounded-lg border-gray-300 border text-center">
+              <h1 className="text-xl lg:text-3xl text-[#244D3F] font-semibold">
                 {next_due_date}
               </h1>
-              <p className="text-gray-500">Next Due</p>
+              <p className="text-gray-500 text-[12px] lg:text-sm">Next Due</p>
             </div>
           </div>
           <div className="bg-white py-5 px-6 rounded-lg border-gray-300 border ">
-            <div className=" flex items-center gap-5 justify-between">
-              <p className="text-xl font-semibold text-[#244D3F]">
+            <div className="mb-2 sm:mb-3 flex items-center gap-5 justify-between">
+              <p className="sm:text-xl text-lg font-semibold text-[#244D3F]">
                 Relationship Goal
               </p>
               <button className="btn">Edit</button>
@@ -173,22 +186,28 @@ const FriendDetails = () => {
                 onClick={() => handleTimeline("call", expectedFriendData.id)}
                 className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC] flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
               >
-                <div className="text-5xl"><BiSolidPhoneCall /></div>
-                <h3 className="text-xl text-gray-500 font-semibold">Call</h3>
+                <div className="text-2xl lg:text-5xl">
+                  <BiSolidPhoneCall />
+                </div>
+                <h3 className="text-lg lg:text-xl text-gray-500 font-semibold">Call</h3>
               </div>
               <div
                 onClick={() => handleTimeline("text", expectedFriendData.id)}
                 className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC] flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
               >
-                <div className="text-5xl"><MdOutlineTextsms /></div>
-                <h3 className="text-xl text-gray-500 font-semibold">Text</h3>
+                <div className="text-2xl lg:text-5xl">
+                  <MdOutlineTextsms />
+                </div>
+                <h3 className="text-lg lg:text-xl text-gray-500 font-semibold">Text</h3>
               </div>
               <div
                 onClick={() => handleTimeline("video", expectedFriendData.id)}
                 className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC]  flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
               >
-                <div className="text-5xl"><IoMdVideocam /></div>
-                <h3 className="text-xl text-gray-500 font-semibold">Video</h3>
+                <div className="text-2xl lg:text-5xl">
+                  <IoMdVideocam />
+                </div>
+                <h3 className="text-lg lg:text-xl text-gray-500 font-semibold">Video</h3>
               </div>
             </div>
           </div>
