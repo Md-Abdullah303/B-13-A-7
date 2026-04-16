@@ -67,6 +67,9 @@ const FriendDetails = () => {
     const day = date.getDay();
     const monthInd = date.getMonth();
     const month = months[monthInd];
+    let time = date.getTime();
+    time = new Date(time).toLocaleTimeString()
+    console.log(time);
 
     const timeLineData = {
       id,
@@ -75,7 +78,9 @@ const FriendDetails = () => {
       month,
       year,
       type,
+      time,
     };
+    console.log(timeLineData.time);
 
     setTimeline([...timeline, timeLineData]);
     toast.success(

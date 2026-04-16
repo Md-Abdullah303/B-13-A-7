@@ -5,7 +5,7 @@ import TimelineShowCard from "../../../components/TimelineShowCard/TimelineShowC
 
 const TimeLine = () => {
   const [timelineStats, setTimelineStats] = useState("show all");
-  const { timeline, setTimeline } = use(TimelineDataContext);
+  const { timeline } = use(TimelineDataContext);
   const [filterTimeline, setFilterTimeline] = useState(timeline);
   console.log(timeline);
 
@@ -68,7 +68,9 @@ const TimeLine = () => {
         </div>
 
         {timeline.length > 0 ? (
-          <div className=" space-y-3">
+          <div
+            className={` space-y-3 ${filterTimeline.length === 1 && "mb-[30vh]"} ${filterTimeline.length < 5 && "mb-[20vh]"}`}
+          >
             {filterTimeline.map((time, ind) => (
               <TimelineShowCard key={ind} time={time}></TimelineShowCard>
             ))}

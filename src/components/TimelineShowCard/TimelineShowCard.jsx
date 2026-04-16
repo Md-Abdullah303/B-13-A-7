@@ -18,7 +18,7 @@ const TimelineShowCard = ({ time }) => {
             with {time.name}
           </span>
         </h1>
-        <p className="text-sm font-normal text-[#64748B]">{`${time.month} ${time.day} ${time.year}`}</p>
+        <p className="text-sm font-normal text-[#64748B]">{`${time.month} ${time.day} ${time.year}, ${time.time}`}</p>
       </div>
     </div>
   );
