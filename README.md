@@ -1,12 +1,44 @@
-# React + Vite
+# 🚀 KeenKeeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Name
 
-Currently, two official plugins are available:
+👥 KeenKeeper — Keep Your Friendships Alive
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ What I Used
+
+- React
+- React Router
+- JavaScript (ES6+)
+- HTML5 (JSX)
+- CSS3
+
+### 📦 Libraries & Packages
+
+- React Icons
+- Recharts
+- React Toastify
+- React Spinners
+
+---
+
+## 📖 Project Description
+
+This project is a web-based application developed to help friends stay connected with each other. This website allows you to easily communicate with your friends.
+
+It also helps you track your daily activities and shows a chart so you can understand what you do most on this platform.
+
+---
+
+## ✨ Key Features
+
+- 🔹 You can add your friends and view their details, including your relationship with them
+- 🔹 You can text, call, and video call your friends
+- 🔹 You can track your daily activities
+- 🔹 You can view a chart to easily understand your workflow
+- 🔹 Responsive design (Mobile, Tablet, Desktop supported)
+
+---
