@@ -147,5 +147,35 @@
         "bio": "Childhood neighbor who moved abroad. We try to stay in touch despite time differences.",
         "goal": 15,
         "next_due_date": "2026-03-27"
-    }
+    },
+    {
+    "id": 11,
+    "name": "Jahid Hasan",
+    "picture": "https://randomuser.me/api/portraits/men/75.jpg",
+    "email": "jahid.hasan@gmail.com",
+    "days_since_contact": 20,
+    "status": "Overdue",
+    "tags": [
+        "freelance",
+        "client"
+    ],
+    "bio": "Worked together on several freelance web projects. A reliable client and great communicator.",
+    "goal": 15,
+    "next_due_date": "2026-03-27"
+},
+{
+    "id": 12,
+    "name": "Tania Sultana",
+    "picture": "https://randomuser.me/api/portraits/women/65.jpg",
+    "email": "tania.sultana@gmail.com",
+    "days_since_contact": 98,
+    "status": "Overdue",
+    "tags": [
+        "design",
+        "creative"
+    ],
+    "bio": "Met through a UI/UX design workshop. We often share ideas about design trends and creativity.",
+    "goal": 51,
+    "next_due_date": "2026-03-27"
+}
 ]
