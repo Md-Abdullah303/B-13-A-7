@@ -2,12 +2,11 @@ import React, { use } from "react";
 import MyFriends from "../../../Hooks/MyFriends";
 import { useLoaderData, useParams } from "react-router";
 import { LuBellRing } from "react-icons/lu";
-import { MdDeleteForever } from "react-icons/md";
-import callImg from "../../img/call.png";
-import taxtImg from "../../img/text.png";
-import videoCallPng from "../../img/video.png";
+import { MdDeleteForever, MdOutlineTextsms } from "react-icons/md";
 import { FaArchive } from "react-icons/fa";
 import { TimelineDataContext } from "../../../context/TimelineContextProvider/TimelineDataContext";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { IoMdVideocam } from "react-icons/io";
 
 /***
  * 
@@ -31,7 +30,7 @@ const FriendDetails = () => {
   const expectedFriendData = friendsData.find(
     (friend) => friend.id === Number(id),
   );
-  
+
   const {
     name,
     bio,
@@ -79,7 +78,7 @@ const FriendDetails = () => {
     };
 
     setTimeline([...timeline, timeLineData]);
-    console.log(timeline);
+    // console.log(timeline);
   };
 
   // console.log(timeline);
@@ -174,21 +173,21 @@ const FriendDetails = () => {
                 onClick={() => handleTimeline("call", expectedFriendData.id)}
                 className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC] flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
               >
-                <img src={callImg} alt="call img" />
+                <div className="text-5xl"><BiSolidPhoneCall /></div>
                 <h3 className="text-xl text-gray-500 font-semibold">Call</h3>
               </div>
               <div
                 onClick={() => handleTimeline("text", expectedFriendData.id)}
                 className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC] flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
               >
-                <img src={taxtImg} alt="call img" />
+                <div className="text-5xl"><MdOutlineTextsms /></div>
                 <h3 className="text-xl text-gray-500 font-semibold">Text</h3>
               </div>
               <div
                 onClick={() => handleTimeline("video", expectedFriendData.id)}
                 className="cursor-pointer hover:bg-[#dee2e6] border border-gray-300 bg-[#F8FAFC]  flex flex-col items-center justify-center py-5 rounded-xl gap-2.5 "
               >
-                <img src={videoCallPng} alt="call img" />
+                <div className="text-5xl"><IoMdVideocam /></div>
                 <h3 className="text-xl text-gray-500 font-semibold">Video</h3>
               </div>
             </div>
